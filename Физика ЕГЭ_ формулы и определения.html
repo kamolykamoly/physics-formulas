@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Физика ЕГЭ: формулы и определения</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=STIX+Two+Text:ital,wght@1,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f4ff;--ink:#141838;--mute:#5b6090;--card:#fff;--line:#dde1fb;--a:#4a3cff;--b:#00a3c4;--glow:rgba(74,60,255,.12);
+--c0:#4a3cff;--c1:#e0457b;--c2:#d98a00;--c3:#00a3c4;--c4:#2f9e5b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c102e;--ink:#eef0ff;--mute:#9aa1d6;--card:#151a46;--line:#262c63;--a:#8b97ff;--b:#3de6d0;--glow:rgba(139,151,255,.16);--c0:#8b97ff;--c1:#ff7aa8;--c2:#ffc24d;--c3:#3de6d0;--c4:#6be39a}}
+:root[data-theme="dark"]{--bg:#0c102e;--ink:#eef0ff;--mute:#9aa1d6;--card:#151a46;--line:#262c63;--a:#8b97ff;--b:#3de6d0;--glow:rgba(139,151,255,.16);--c0:#8b97ff;--c1:#ff7aa8;--c2:#ffc24d;--c3:#3de6d0;--c4:#6be39a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Onest,system-ui,sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;background-attachment:fixed}
+body::after{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 20% 0,transparent,var(--bg) 75%);pointer-events:none;z-index:-1}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px 80px}
+header{padding:56px 0 28px;position:relative;overflow:hidden}
+.ghost{position:absolute;right:-10px;top:10px;font:italic 500 clamp(110px,22vw,260px)/1 "STIX Two Text",Georgia,serif;color:transparent;-webkit-text-stroke:1.5px var(--line);user-select:none;pointer-events:none;animation:rise 1.2s ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.ghost{animation:none}.vis *{animation:none!important}*{transition:none!important}}
+h1{font:700 clamp(30px,6vw,60px)/1.08 Unbounded,sans-serif;margin:0 0 16px;max-width:15ch;position:relative;letter-spacing:-.02em}
+.lead{max-width:52ch;color:var(--mute);font-size:18px;position:relative;margin:0}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:28px 0 14px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;padding:12px 0;background:linear-gradient(var(--bg) 80%,transparent)}
+.search{flex:1 1 220px;min-width:0;padding:12px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+.search:focus,.btn:focus-visible,.chip:focus-visible,.know:focus-visible,.card:focus-visible{outline:3px solid var(--a);outline-offset:2px}
+.btn{padding:11px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 15px Onest,sans-serif;cursor:pointer}
+.btn[aria-pressed="true"]{background:var(--a);border-color:var(--a);color:var(--bg)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.chip{padding:8px 15px;border-radius:99px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;font:500 14px Onest,sans-serif;display:flex;gap:8px;align-items:center}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--col,var(--a))}
+.chip[aria-pressed="true"]{background:var(--card);border-color:var(--col,var(--a));box-shadow:0 0 0 3px var(--glow)}
+.prog{display:flex;align-items:center;gap:14px;margin:18px 0 26px;font-weight:500;color:var(--mute)}
+.track{flex:1;height:10px;border-radius:9px;background:var(--line);overflow:hidden;max-width:420px}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--b));border-radius:9px;transition:width .5s}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{position:relative;background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:20px 20px 16px;display:flex;flex-direction:column;gap:10px;border-top:4px solid var(--col)}
+.card.done{border-color:var(--col);box-shadow:0 0 0 3px var(--glow)}
+.tag{font-size:13px;color:var(--col);font-weight:600}
+.name{font:600 17px/1.3 Onest,sans-serif;margin:0}
+.f{font:italic 500 clamp(24px,3.4vw,30px)/1.35 "STIX Two Text",Georgia,serif;padding:14px 12px;border-radius:14px;background:var(--bg);overflow-x:auto;white-space:nowrap;position:relative;transition:filter .3s}
+.f sub,.f sup{font-size:.6em;line-height:0}
+.desc{margin:0;color:var(--mute);font-size:15px}
+.know{margin-top:auto;align-self:flex-start;padding:8px 14px;border-radius:12px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;font:600 14px Onest,sans-serif}
+.card.done .know{background:var(--col);border-color:var(--col);color:var(--bg)}
+.test .card:not(.open) .f{filter:blur(11px);cursor:pointer}
+.test .card:not(.open) .f::after{content:"Вспомни и нажми";position:absolute;inset:0;display:grid;place-items:center;font:600 15px Onest,sans-serif;color:var(--ink);filter:none}
+.test .card:not(.open){cursor:pointer}
+.vis{border-radius:14px;background:linear-gradient(180deg,var(--bg),var(--card));border:1px solid var(--line);overflow:hidden}.vis svg{display:block;width:100%;height:auto}.vis text{font:italic 500 14px "STIX Two Text",Georgia,serif;fill:var(--ink)}
+.s{stroke:var(--line);stroke-width:3;fill:none}.fc{fill:var(--col)}.fi{fill:var(--ink)}.ar{stroke:var(--col);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.fr{animation:sl 1.5s ease-in infinite}.ctl{display:flex;gap:12px;align-items:center;padding:6px 12px 8px;font-size:14px;color:var(--mute);background:var(--card)}.ctl input{flex:1;accent-color:var(--col)}
+@keyframes go{to{transform:translateX(200px)}}@keyframes acc{to{transform:translateX(190px)}}@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fall{0%{transform:none;animation-timing-function:cubic-bezier(.55,0,1,.45)}60%{transform:translateY(85px);animation-timing-function:cubic-bezier(0,.55,.45,1)}75%{transform:translateY(55px);animation-timing-function:cubic-bezier(.55,0,1,.45)}90%,100%{transform:translateY(85px)}}
+@keyframes sw{from{transform:rotate(-40deg)}to{transform:rotate(40deg)}}@keyframes sl{to{transform:translateX(-125px)}}
+@keyframes sp{to{transform:scaleX(1.8)}}@keyframes sb{to{transform:translateX(54px)}}@keyframes bob{from{transform:translateY(-6px)}to{transform:translateY(8px)}}
+@keyframes hitA{40%,100%{transform:translateX(100px)}}@keyframes hitB{0%,40%{transform:none}100%{transform:translateX(100px)}}
+.card{transition:transform .25s,box-shadow .25s}.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px var(--glow)}
+@keyframes pl{to{transform:translateX(-80px)}}@keyframes pr{to{transform:translateX(80px)}}@keyframes tl{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}@keyframes t2{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+@keyframes dn{to{transform:translateY(46px)}}@keyframes bx{to{transform:translateX(var(--dx))}}@keyframes by{to{transform:translateY(var(--dy))}}@keyframes pi{to{transform:translateX(-70px)}}@keyframes po{to{transform:translateX(50px)}}
+@keyframes up{0%{transform:none;opacity:0}20%{opacity:1}100%{transform:translateY(-70px);opacity:0}}@keyframes gr{from{transform:scaleY(.1)}}@keyframes grx{from{transform:scaleX(.05)}}@keyframes shr{to{transform:scale(.3)}}@keyframes fl{to{transform:scale(.85,1.15)}}@keyframes ht{to{fill:var(--c1)}}
+.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:40px}
+.tip{margin-top:44px;padding:20px;border-radius:18px;background:var(--card);border:1.5px dashed var(--line);color:var(--mute)}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 10px}
+.tab{padding:11px 18px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 15px Onest,sans-serif;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--a);border-color:var(--a);color:var(--bg)}
+.tab:focus-visible,.opt:focus-visible,.tok:focus-visible{outline:3px solid var(--a);outline-offset:2px}
+.panel{display:none}.panel.on{display:block}
+.qbox{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:22px;max-width:780px;margin:16px 0}
+.qtop{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--mute);font-weight:500;font-size:14px;margin-bottom:10px}
+.q{font:600 18px/1.35 Onest,sans-serif;margin:0 0 6px}
+.opts{display:grid;gap:10px;margin:16px 0}
+.opt{text-align:left;padding:14px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;font:500 16px Onest,sans-serif}
+.opt.fm{font:italic 500 24px "STIX Two Text",Georgia,serif;white-space:nowrap;overflow-x:auto}
+.opt sub,.opt sup,.tok sub,.tok sup{font-size:.6em;line-height:0}
+.opt:disabled{cursor:default;color:var(--ink)}
+.opt.ok{border-color:var(--c4);background:var(--glow);box-shadow:0 0 0 3px var(--glow)}.opt.no{border-color:var(--c1)}
+.fb{padding:12px 14px;border-radius:12px;background:var(--bg);color:var(--mute);margin:0 0 14px}
+.sel{padding:9px 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:500 14px Onest,sans-serif}
+.big{font:700 clamp(40px,10vw,64px)/1 Unbounded,sans-serif;color:var(--a);margin:6px 0}
+.mis{margin:10px 0 16px;padding:0;list-style:none;display:grid;gap:8px}.mis li{padding:10px 12px;border-radius:12px;background:var(--bg)}
+.slots,.bank{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.slots{min-height:76px;padding:12px;border:2px dashed var(--line);border-radius:14px;margin:14px 0 12px;background:var(--bg)}
+.slots.ok{border-color:var(--c4);border-style:solid}.slots.no{border-color:var(--c1);border-style:solid}
+.slots .ph{color:var(--mute);font-size:14px}
+.tok{font:italic 500 24px "STIX Two Text",Georgia,serif;padding:6px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;min-height:44px}
+.slots .tok{border-color:var(--a)}.tok.used{visibility:hidden}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.acts .btn.pri{background:var(--a);border-color:var(--a);color:var(--bg)}.btn:disabled{opacity:.4;cursor:not-allowed}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="ghost" aria-hidden="true">F=ma</div>
+<h1>Физика к ЕГЭ: формулы без зубрёжки</h1>
+<p class="lead">Основные формулы и определения за 10 класс. Читай карточки, затем проверь себя в тесте и собери формулу по частям в конструкторе.</p>
+</header>
+
+<nav class="tabs" role="tablist"><button class="tab" role="tab" data-p="cards" aria-selected="true">Карточки</button><button class="tab" role="tab" data-p="quiz" aria-selected="false">Тест</button><button class="tab" role="tab" data-p="build" aria-selected="false">Конструктор</button></nav>
+<div class="panel on" id="p-cards">
+<div class="bar">
+<input class="search" id="q" type="search" placeholder="Найти: сила, энергия, давление…" aria-label="Поиск">
+<button class="btn" id="mode" aria-pressed="false">Режим проверки</button>
+<button class="btn" id="theme" aria-label="Сменить тему">Тема</button>
+</div>
+<div class="chips" id="chips"></div>
+<div class="prog"><span id="ptxt">Выучено 0 из 0</span><div class="track"><div class="fill" id="fill"></div></div></div>
+<main class="grid" id="grid"></main>
+<div class="tip">Совет: в режиме проверки формулы размыты. Попробуй сначала написать формулу на бумаге, потом открой карточку. Отмечай «Выучил» только то, что смог вспомнить сам. Прогресс сохраняется в этом браузере.</div></div>
+<section class="panel" id="p-quiz"><div class="qbox" id="quiz"></div></section>
+<section class="panel" id="p-build"><div class="qbox" id="build"></div></section>
+</div>
+
+<script>
+const T=[["Кинематика","--c0"],["Динамика","--c1"],["Законы сохранения","--c2"],["МКТ и газы","--c3"],["Термодинамика","--c4"]];
+const D=[
+[0,"Скорость равномерного движения","v = s / t","Путь, делённый на время. Не меняется со временем."],
+[0,"Ускорение","a = (v − v<sub>0</sub>) / t","Физическая величина, показывающая, как быстро меняется скорость. Единица: м/с²."],
+[0,"Скорость при равноускоренном движении","v = v<sub>0</sub> + at","Скорость растёт линейно со временем."],
+[0,"Перемещение при равноускоренном движении","s = v<sub>0</sub>t + at² / 2","При a &lt; 0 тело тормозит. Знаки проекций важны."],
+[0,"Перемещение без времени","s = (v² − v<sub>0</sub>²) / 2a","Удобно, когда время неизвестно."],
+[0,"Свободное падение","h = gt² / 2, v = gt","Движение только под действием силы тяжести, g ≈ 10 м/с²."],
+[0,"Центростремительное ускорение","a = v² / R = ω²R","Направлено к центру окружности."],
+[0,"Период и частота","T = 1 / ν = 2πR / v","Период: время одного оборота. Частота: число оборотов в секунду."],
+[1,"Второй закон Ньютона","ΣF = ma","Ускорение тела прямо пропорционально равнодействующей силе и обратно пропорционально массе."],
+[1,"Третий закон Ньютона","F<sub>12</sub> = −F<sub>21</sub>","Тела действуют друг на друга с равными по модулю и противоположными по направлению силами."],
+[1,"Первый закон Ньютона","ΣF = 0 ⇒ v = const","Существуют инерциальные системы отсчёта, в которых тело сохраняет скорость, если на него не действуют другие тела."],
+[1,"Закон всемирного тяготения","F = G m<sub>1</sub>m<sub>2</sub> / R²","Сила притяжения двух тел обратно пропорциональна квадрату расстояния между ними."],
+[1,"Сила тяжести","F = mg","Сила, с которой планета притягивает тело вблизи поверхности."],
+[1,"Сила упругости (закон Гука)","F = kx","Сила пропорциональна деформации и направлена против неё."],
+[1,"Сила трения скольжения","F = μN","Пропорциональна силе реакции опоры N, не зависит от площади соприкосновения."],
+[1,"Первая космическая скорость","v = √(GM / R)","Скорость движения по круговой орбите у поверхности планеты, ≈ 7,9 км/с для Земли."],
+[1,"Момент силы","M = Fl","Сила, умноженная на плечо (кратчайшее расстояние от оси до линии действия силы)."],
+[1,"Условия равновесия","ΣF = 0, ΣM = 0","Тело в равновесии, если равны нулю сумма сил и сумма моментов сил."],
+[1,"Давление в жидкости","p = ρgh","Давление столба жидкости плотностью ρ на глубине h."],
+[1,"Сила Архимеда","F<sub>A</sub> = ρgV","Выталкивающая сила равна весу жидкости, вытесненной погружённой частью тела."],
+[2,"Импульс тела","p = mv","Векторная величина, равная произведению массы на скорость."],
+[2,"Закон сохранения импульса","m<sub>1</sub>v<sub>1</sub> + m<sub>2</sub>v<sub>2</sub> = m<sub>1</sub>v′<sub>1</sub> + m<sub>2</sub>v′<sub>2</sub>","Импульс замкнутой системы тел сохраняется. Пиши в проекциях!"],
+[2,"Механическая работа","A = Fs cos α","α: угол между силой и перемещением. Единица: джоуль."],
+[2,"Мощность","N = A / t = Fv","Работа в единицу времени. Единица: ватт."],
+[2,"Кинетическая энергия","E<sub>k</sub> = mv² / 2","Энергия движения. Работа равнодействующей равна изменению E<sub>k</sub>."],
+[2,"Потенциальная энергия","E<sub>p</sub> = mgh, E<sub>p</sub> = kx² / 2","В поле тяжести и для сжатой или растянутой пружины."],
+[2,"Закон сохранения энергии","E<sub>k</sub> + E<sub>p</sub> = const","Полная механическая энергия сохраняется, если нет трения и других непотенциальных сил."],
+[3,"Количество вещества","ν = N / N<sub>A</sub> = m / M","N<sub>A</sub> = 6·10²³ моль⁻¹. M: молярная масса."],
+[3,"Основное уравнение МКТ","p = ⅓ m<sub>0</sub>nv² = ⅔ n Ē","Давление газа создаётся ударами молекул о стенки."],
+[3,"Энергия и температура","Ē = (3/2) kT","Средняя кинетическая энергия молекулы прямо пропорциональна абсолютной температуре. T = t + 273."],
+[3,"Давление через концентрацию","p = nkT","k = 1,38·10⁻²³ Дж/К: постоянная Больцмана."],
+[3,"Уравнение Менделеева — Клапейрона","pV = νRT","R = 8,31 Дж/(моль·К). Связывает все параметры идеального газа."],
+[3,"Изотермический процесс","pV = const (T = const)","Закон Бойля — Мариотта."],
+[3,"Изобарный процесс","V / T = const (p = const)","Закон Гей-Люссака."],
+[3,"Изохорный процесс","p / T = const (V = const)","Закон Шарля."],
+[3,"Относительная влажность","φ = p / p<sub>н</sub> · 100%","Отношение парциального давления пара к давлению насыщенного пара."],
+[4,"Внутренняя энергия одноатомного газа","U = (3/2) νRT","Зависит только от температуры, у идеального газа нет потенциальной части."],
+[4,"Работа газа","A = pΔV","При расширении A &gt; 0, равна площади под графиком p(V)."],
+[4,"Первый закон термодинамики","Q = ΔU + A<sub>газа</sub>","Количество теплоты идёт на изменение внутренней энергии и на работу газа."],
+[4,"Нагревание и охлаждение","Q = cmΔT","c: удельная теплоёмкость вещества."],
+[4,"Плавление и парообразование","Q = λm, Q = Lm","λ: удельная теплота плавления, L: удельная теплота парообразования."],
+[4,"Сгорание топлива","Q = qm","q: удельная теплота сгорания."],
+[4,"КПД тепловой машины","η = (Q<sub>1</sub> − Q<sub>2</sub>) / Q<sub>1</sub>","Q<sub>1</sub>: от нагревателя, Q<sub>2</sub>: отдано холодильнику."],
+[4,"КПД цикла Карно","η = (T<sub>1</sub> − T<sub>2</sub>) / T<sub>1</sub>","Максимально возможный КПД при данных температурах нагревателя и холодильника."]
+];
+let st={filter:-1,q:"",test:false,done:new Set(),open:new Set()};
+try{st.done=new Set(JSON.parse(localStorage.getItem("fz-done")||"[]"))}catch(e){}
+const $=id=>document.getElementById(id);
+const H='<svg viewBox="0 0 300 120" aria-hidden="true">',E='</svg>',FL='<path class="s" d="M0 100H300"/>';
+const V={
+0:H+FL+'<g style="animation:go 3s linear infinite"><rect class="fc" x="20" y="66" width="46" height="24" rx="7"/><circle class="fi" cx="32" cy="92" r="7"/><circle class="fi" cx="54" cy="92" r="7"/><path class="ar" d="M72 78h24m-6-6 6 6-6 6"/></g><text x="10" y="22">v = const</text>'+E,
+5:H+'<path class="s" d="M0 108H300"/><circle class="fc" cx="150" cy="14" r="9" style="animation:fall 2.2s infinite"/><path class="ar" d="M200 20v50m-6-6 6 6 6-6"/><text x="212" y="46">g</text>'+E,
+6:H+'<circle class="s" cx="150" cy="60" r="40"/><circle class="fi" cx="150" cy="60" r="3"/><g style="transform-origin:150px 60px;animation:spin 2.4s linear infinite"><circle class="fc" cx="190" cy="60" r="10"/><path class="ar" d="M178 60h-16m5-5-5 5 5 5"/></g><text x="10" y="22">a — к центру</text>'+E,
+8:H+FL+'<g style="animation:acc 3s ease-in infinite"><rect class="fc" x="30" y="66" width="40" height="34" rx="6"/><path class="ar" style="stroke:var(--ink)" d="M2 83h24m-6-6 6 6-6 6"/><text x="46" y="88" style="fill:var(--bg)">m</text></g><text x="10" y="22">F постоянна, скорость растёт</text>'+E,
+13:H+'<path class="s" d="M28 30V90M0 90H300"/><g style="transform-origin:30px 0;animation:sp 1.3s ease-in-out infinite alternate"><path class="ar" d="M30 70H38L44 56 54 84 64 56 74 84 84 56 90 70H98"/></g><rect class="fc" x="98" y="52" width="40" height="36" rx="6" style="animation:sb 1.3s ease-in-out infinite alternate"/><text x="180" y="24">больше x — больше F</text>'+E,
+14:H+'<path d="M20 112H200V8Z" fill="var(--line)"/><g transform="translate(20 112) rotate(-30)"><g class="fr"><rect class="fc" x="140" y="-24" width="40" height="24" rx="4"/><path class="ar" style="stroke:var(--ink)" d="M150-34h38m-7-5 7 5-7 5"/></g></g><text x="214" y="96">Fтр ↗ вверх по склону</text>'+E+'<div class="ctl"><input class="mu" type="range" min="0" max=".7" step=".05" value=".2" aria-label="Коэффициент трения"><span>μ = 0.20</span></div>',
+19:H+'<rect y="62" width="300" height="58" fill="var(--b)" opacity=".3"/><g style="animation:bob 1.6s ease-in-out infinite alternate"><rect class="fc" x="120" y="38" width="60" height="50" rx="6"/><path class="ar" style="stroke:var(--ink)" d="M150 80V18m-6 6 6-6 6 6"/><text x="190" y="30">Fₐ</text></g>'+E,
+21:H+FL+'<circle class="fc" cx="40" cy="84" r="16" style="animation:hitA 3.2s linear infinite"/><circle class="fi" cx="172" cy="84" r="16" style="animation:hitB 3.2s ease-out infinite"/><text x="10" y="22">импульс передаётся</text>'+E,
+26:H+'<circle class="fi" cx="150" cy="10" r="3"/><g style="transform-origin:150px 10px;animation:sw 1.5s ease-in-out infinite alternate"><path class="ar" style="stroke:var(--ink)" d="M150 10V96"/><circle class="fc" cx="150" cy="100" r="12"/></g><text x="10" y="22">Eк ⇄ Eп</text>'+E};
+const bl=(t,tm,ex='')=>H+FL+`<g style="animation:acc 3s ${tm} infinite"><rect class="fc" x="30" y="66" width="40" height="34" rx="6"/>${ex}</g><text x="10" y="22">${t}</text>`+E;
+const AR='<path class="ar" style="stroke:var(--ink)" d="M2 83h24m-6-6 6 6-6 6"/>';
+const pst=(x,k)=>`<rect class="fi" x="${x}" y="8" width="8" height="104" style="animation:${k} 3s ease-in-out infinite alternate"/>`;
+const gas=(n,d,p,t,hot)=>{let s='';for(let i=0;i<n;i++){const x=24+(i*37)%90,y=20+(i*29)%30;s+=`<g style="--dx:${60+i%3*10}px;animation:bx ${d*(1+i%3*.3)}s ease-in-out infinite alternate"><circle class="fc" cx="${x}" cy="${y}" r="5" style="--dy:${20+i%4*8}px;animation:by ${d*(.8+i%2*.4)}s ease-in-out infinite alternate${hot?',ht 2s infinite alternate':''}"/></g>`}return H+'<rect x="10" y="8" width="280" height="104" rx="8" class="s"/>'+s+(p||'')+`<text x="18" y="106">${t}</text>`+E};
+const ob=(t,r,d,pl)=>H+`<circle class="fi" cx="150" cy="60" r="${pl?16:3}"/><circle class="s" cx="150" cy="60" r="${r}"/><g style="transform-origin:150px 60px;animation:spin ${d}s linear infinite"><circle class="fc" cx="${150+r}" cy="60" r="8"/></g><text x="10" y="22">${t}</text>`+E;
+const se=(t,k)=>H+`<path class="fi" d="M150 100l-14 0 14-24 14 24z"/><g style="transform-origin:150px 76px;animation:${k} 2s ease-in-out infinite alternate"><path class="ar" style="stroke:var(--ink)" d="M30 76H270"/><circle class="fc" cx="60" cy="62" r="14"/><rect class="fc" x="220" y="62" width="28" height="14" rx="3"/></g><text x="10" y="22">${t}</text>`+E;
+const eb=(t,a,b)=>{const r=(y,w,c,l)=>`<rect x="20" y="${y}" width="${w}" height="22" rx="5" style="fill:var(${c});transform-origin:20px 0;animation:grx 3s ease-out infinite alternate"/><text x="28" y="${y+16}" style="fill:var(--bg)">${l}</text>`;return H+r(30,a,'--c1','Q₁ от нагревателя')+r(60,a-b,'--c4','A полезная работа')+r(90,b,'--c3','Q₂')+`<text x="10" y="20">${t}</text>`+E};
+Object.assign(V,{
+1:bl('a = Δv / t','ease-in'),2:bl('v = v₀ + at','cubic-bezier(.3,.3,1,1)'),3:bl('s = v₀t + at² / 2','ease-in'),4:bl('торможение: a < 0','ease-out'),
+7:ob('T — время одного оборота',40,3),
+9:H+FL+'<rect class="fc" x="100" y="66" width="40" height="34" rx="6" style="animation:pl 2s ease-out infinite"/><rect class="fi" x="160" y="66" width="40" height="34" rx="6" style="animation:pr 2s ease-out infinite"/><text x="10" y="22">F₁₂ = −F₂₁: тела отталкиваются поровну</text>'+E,
+10:V[0].replace('v = const','ΣF = 0 → v = const'),
+11:ob('F ~ 1 / R²',44,4,1),
+12:H+FL+'<circle class="fc" cx="150" cy="86" r="14"/><g style="animation:bob .9s ease-in-out infinite alternate"><path class="ar" style="stroke:var(--ink)" d="M150 30v30m-6-6 6 6 6-6"/></g><text x="168" y="50">mg</text>'+E,
+15:ob('орбита у самой поверхности',26,1.6,1),
+16:se('M = Fl: больше плечо — сильнее','tl'),17:se('ΣM = 0: равновесие','t2'),
+18:H+'<rect y="14" width="300" height="106" fill="var(--b)" opacity=".3"/><g style="animation:dn 3s ease-in-out infinite alternate"><circle class="fc" cx="150" cy="30" r="10"/><path class="ar" style="stroke:var(--ink)" d="M120 30h-18m5-5-5 5 5 5M180 30h18m-5-5 5 5-5 5"/></g><text x="10" y="108">глубже h → больше p</text>'+E,
+20:bl('p = mv','linear',AR),
+22:bl('A = Fs cos α','ease-in-out','<path class="ar" style="stroke:var(--ink)" d="M2 72l24-12m-9-1 9 1-3 9"/>'),
+23:H+FL+'<rect class="fc" x="30" y="70" width="30" height="24" rx="5" style="animation:acc 2s linear infinite"/><rect class="fi" x="30" y="40" width="30" height="24" rx="5" style="animation:acc 4s linear infinite"/><text x="10" y="22">N = A / t: быстрее — мощнее</text>'+E,
+24:bl('Eк = mv² / 2','ease-in'),
+25:H+'<path d="M0 60H110V120H0Z" fill="var(--line)"/><circle class="fc" cx="60" cy="46" r="13" style="animation:bob 1s ease-in-out infinite alternate"/><path class="ar" d="M140 60V108m-5-6 5 6 5-6"/><text x="152" y="88">h</text><text x="10" y="22">Eп = mgh</text>'+E,
+27:gas(6,2.4,'','ν = N / N_A'),28:gas(10,1.6,'','p — удары о стенки'),29:gas(10,.7,'','выше T → быстрее молекулы',1),30:gas(14,1.6,'','p = nkT'),31:gas(8,1.4,'','pV = νRT'),
+32:gas(8,1.6,pst(270,'pi'),'T = const: V↓ → p↑'),33:gas(8,1,pst(210,'po'),'p = const: T↑ → V↑',1),34:gas(9,.8,'','V = const: T↑ → p↑',1),
+35:H+'<rect y="86" width="300" height="34" fill="var(--b)" opacity=".3"/>'+[0,1,2,3,4].map(i=>`<circle class="fc" cx="${50+i*50}" cy="84" r="4" style="animation:up ${2.4+i%2*.6}s ${i*.5}s infinite"/>`).join('')+'<text x="10" y="22">φ = p / pн · 100%</text>'+E,
+36:gas(10,.9,'','U растёт с T',1),37:gas(8,1.4,pst(210,'po'),'A = pΔV'),38:gas(8,1.2,pst(210,'po'),'Q = ΔU + A',1),
+39:H+'<rect x="140" y="14" width="20" height="80" rx="10" fill="var(--line)"/><rect x="144" y="18" width="12" height="76" rx="6" style="fill:var(--c1);transform-origin:150px 94px;animation:gr 3s ease-in-out infinite alternate"/><circle cx="150" cy="100" r="13" style="fill:var(--c1)"/><text x="10" y="22">Q = cmΔT</text>'+E,
+40:H+FL+'<rect x="100" y="52" width="48" height="48" rx="6" style="fill:var(--b);opacity:.7;transform-origin:124px 100px;animation:shr 3s ease-in-out infinite alternate"/><rect x="170" y="90" width="80" height="10" rx="4" style="fill:var(--b);opacity:.35;transform-origin:210px 100px;animation:gr 3s ease-in-out infinite alternate"/><text x="10" y="22">Q = λm: лёд → вода</text>'+E,
+41:H+FL+'<path style="fill:var(--c2);transform-origin:150px 100px;animation:fl .5s ease-in-out infinite alternate" d="M150 100c-26 0-30-26-14-44 4 10 10 12 14 14 2-16 8-26 16-34 14 24 14 64-16 64z"/><path style="fill:var(--c1);transform-origin:150px 100px;animation:fl .35s ease-in-out infinite alternate" d="M150 100c-12 0-14-14-6-24 4 6 6 6 6 6 2-8 4-12 8-16 8 14 6 34-8 34z"/><text x="10" y="22">Q = qm</text>'+E,
+42:eb('η = (Q₁ − Q₂) / Q₁',240,100),43:eb('Карно: максимум при данных T₁ и T₂',240,70)});
+function save(){try{localStorage.setItem("fz-done",JSON.stringify([...st.done]))}catch(e){}}
+function chips(){
+ const all=[["Все темы","--a",-1],...T.map((t,i)=>[t[0],t[1],i])];
+ $("chips").innerHTML=all.map(c=>`<button class="chip" style="--col:var(${c[1]})" data-i="${c[2]}" aria-pressed="${st.filter===c[2]}"><i></i>${c[0]}</button>`).join("");
+}
+function render(){
+ const q=st.q.trim().toLowerCase();
+ const list=D.map((d,i)=>({d,i})).filter(({d})=>(st.filter<0||d[0]===st.filter)&&(!q||(d[1]+" "+d[3]).toLowerCase().includes(q)));
+ $("grid").className="grid"+(st.test?" test":"");
+ $("grid").innerHTML=list.length?list.map(({d,i})=>`<article class="card${st.done.has(i)?" done":""}${st.open.has(i)?" open":""}" data-i="${i}" style="--col:var(${T[d[0]][1]})" ${st.test?'tabindex="0"':""}>
+ <span class="tag">${T[d[0]][0]}</span><h2 class="name">${d[1]}</h2>${V[i]?`<div class="vis">${V[i]}</div>`:""}<div class="f">${d[2]}</div><p class="desc">${d[3]}</p>
+ <button class="know" data-k="${i}">${st.done.has(i)?"Выучено ✓":"Выучил"}</button></article>`).join(""):'<p class="empty">Ничего не найдено. Попробуй другое слово.</p>';
+ const n=st.done.size;$("ptxt").textContent=`Выучено ${n} из ${D.length}`;$("fill").style.width=(n/D.length*100)+"%";
+}
+$("chips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;st.filter=+b.dataset.i;chips();render()};
+$("q").oninput=e=>{st.q=e.target.value;render()};
+$("mode").onclick=e=>{st.test=!st.test;st.open.clear();e.target.setAttribute("aria-pressed",st.test);e.target.textContent=st.test?"Режим проверки: вкл":"Режим проверки";render()};
+$("theme").onclick=()=>{const r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=dark?"light":"dark"};
+$("grid").onclick=e=>{
+ const k=e.target.closest(".know");
+ if(k){const i=+k.dataset.k;st.done.has(i)?st.done.delete(i):st.done.add(i);save();render();return}
+ const c=e.target.closest(".card");
+ if(c&&st.test){const i=+c.dataset.i;st.open.has(i)?st.open.delete(i):st.open.add(i);render()}
+};
+$("grid").onkeydown=e=>{if(e.key==="Enter"&&e.target.classList.contains("card")){e.target.click()}};
+$("grid").oninput=e=>{const s=e.target;if(!s.classList.contains("mu"))return;const mu=+s.value,a=10*(.5-mu*.866),v=s.closest(".card").querySelector(".fr");s.nextElementSibling.textContent="μ = "+mu.toFixed(2)+(a<=0?" · тело не скользит":"");if(a<=0){v.style.animation="none"}else{v.style.animation="";v.style.animationDuration=(1.2*Math.sqrt(5/a))+"s"}};
+chips();render();
+
+const sh=a=>a.map(x=>[Math.random(),x]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+const sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},ld=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
+ document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected",x===b));
+ document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id==="p-"+b.dataset.p));
+ if(b.dataset.p==="quiz"&&!Q.list.length)startQ();if(b.dataset.p==="build"&&Bc<0)nextB();
+});
+/* ---------- ТЕСТ ---------- */
+let Q={list:[],n:0,score:0,wrong:[],ans:-1,topic:-1,cnt:999,opts:[]};
+const qtxt=(i,dir)=>dir?D[i][1]:D[i][2];
+function startQ(ids){
+ const pool=ids||D.map((d,i)=>i).filter(i=>Q.topic<0||D[i][0]===Q.topic);
+ Q.list=sh([...pool.flatMap(i=>[{i,dir:true},{i,dir:false}]),...B.filter(b=>pool.includes(b[0])).map(b=>{const o=b[1].map((t,j)=>j).filter(j=>!["=","(",")",",","⇒"].includes(b[1][j])),h=o[Math.floor(Math.random()*o.length)];return{i:b[0],m:1,h,ans:b[1][h]}})]).slice(0,Q.cnt);Q.n=0;Q.score=0;Q.wrong=[];Q.ans=-1;rq();
+}
+function mkOpts(it){
+ const {i,dir}=it,seen=new Set([qtxt(i,dir)]),c=sh(D.map((d,j)=>j).filter(j=>j!==i));
+ const pick=[...c.filter(j=>D[j][0]===D[i][0]),...c.filter(j=>D[j][0]!==D[i][0])].filter(j=>{const t=qtxt(j,dir);if(seen.has(t))return false;seen.add(t);return true}).slice(0,3);
+ return sh([i,...pick]);
+}
+function rq(){
+ const el=$("quiz"),sel=`<select class="sel" id="qt" aria-label="Тема теста"><option value="-1">Все темы</option>${T.map((t,i)=>`<option value="${i}"${Q.topic===i?" selected":""}>${t[0]}</option>`).join("")}</select><select class="sel" id="qc" aria-label="Число вопросов">${[[10,"10 вопросов"],[25,"25 вопросов"],[999,"Все вопросы"]].map(c=>`<option value="${c[0]}"${Q.cnt===c[0]?" selected":""}>${c[1]}</option>`).join("")}</select>`;
+ if(Q.n>=Q.list.length){
+  const best=Math.max(ld("fz-best",0),Q.score);sv("fz-best",best);
+  el.innerHTML=`<div class="qtop"><span>Результат</span>${sel}</div><div class="big">${Q.score} / ${Q.list.length}</div><p class="fb">Лучший результат: ${best}. ${Q.wrong.length?"Ошибки стоит повторить:":"Без ошибок, отлично!"}</p>
+  ${Q.wrong.length?`<ul class="mis">${Q.wrong.map(i=>`<li><b>${D[i][1]}</b><br><span class="f" style="display:inline-block;margin-top:6px;padding:4px 10px">${D[i][2]}</span></li>`).join("")}</ul>`:""}
+  <div class="acts">${Q.wrong.length?'<button class="btn pri" data-a="redo">Повторить ошибки</button>':""}<button class="btn" data-a="new">Новый тест</button></div>`;return;
+ }
+ const it=Q.list[Q.n];Q.ans=-1;
+ if(it.m){const b=B.find(x=>x[0]===it.i);Q.opts=sh([it.ans,...sh(X[B.indexOf(b)]).filter(t=>t!==it.ans)].slice(0,4));
+  el.innerHTML=`<div class="qtop"><span>Вопрос ${Q.n+1} из ${Q.list.length} · верно: ${Q.score}</span>${sel}</div><p class="q">Вставь пропущенную часть: ${D[it.i][1]}</p><div class="f">${b[1].map((t,j)=>j===it.h?'<span style="color:var(--a)">▢</span>':t).join(" ")}</div><div class="opts">${Q.opts.map((t,k)=>`<button class="opt fm" data-j="${k}">${t}</button>`).join("")}</div><div id="qfb"></div>`;return}
+ Q.opts=mkOpts(it);
+ el.innerHTML=`<div class="qtop"><span>Вопрос ${Q.n+1} из ${Q.list.length} · верно: ${Q.score}</span>${sel}</div>
+ ${it.dir?`<p class="q">Какая формула у величины или закона:</p><div class="f" style="white-space:normal">${D[it.i][1]}</div>`:`<p class="q">Какому закону или величине соответствует формула:</p><div class="f">${D[it.i][2]}</div>`}
+ <div class="opts">${Q.opts.map((j,k)=>`<button class="opt${it.dir?" fm":""}" data-j="${k}">${qtxt(j,it.dir)}</button>`).join("")}</div><div id="qfb"></div>`;
+}
+$("quiz").onchange=e=>{if(e.target.id==="qt"){Q.topic=+e.target.value;startQ()}else if(e.target.id==="qc"){Q.cnt=+e.target.value;startQ()}};
+$("quiz").onclick=e=>{
+ const a=e.target.closest("[data-a]");
+ if(a){a.dataset.a==="redo"?startQ(Q.wrong.slice()):a.dataset.a==="new"?startQ():(Q.n++,rq());return}
+ const o=e.target.closest(".opt");if(!o||Q.ans>=0)return;
+ const it=Q.list[Q.n],k=+o.dataset.j;Q.ans=k;const ok=it.m?Q.opts[k]===it.ans:Q.opts[k]===it.i;
+ document.querySelectorAll("#quiz .opt").forEach((b,x)=>{b.disabled=true;if(it.m?Q.opts[x]===it.ans:Q.opts[x]===it.i)b.classList.add("ok");else if(x===k)b.classList.add("no")});
+ if(ok)Q.score++;else Q.wrong.push(it.i);
+ $("qfb").innerHTML=`<p class="fb"><b>${ok?"Верно!":"Неверно."}</b> ${D[it.i][3]}</p><button class="btn pri" data-a="next">${Q.n+1>=Q.list.length?"Результат":"Дальше"}</button>`;
+};
+/* ---------- КОНСТРУКТОР ---------- */
+const B=[[0,["v","=","s","/","t"],["a"]],[2,["v","=","v<sub>0</sub>","+","a","t"],["−"]],[3,["s","=","v<sub>0</sub>t","+","at²","/","2"],["−"]],[8,["ΣF","=","m","a"],["/"]],
+[11,["F","=","G","m<sub>1</sub>m<sub>2</sub>","/","R²"],["R"]],[13,["F","=","k","x"],["x²"]],[14,["F","=","μ","N"],["m"]],[18,["p","=","ρ","g","h"],["V"]],[19,["F<sub>A</sub>","=","ρ","g","V"],["h"]],
+[22,["A","=","F","s","cos α"],["sin α"]],[24,["E<sub>k</sub>","=","m","v²","/","2"],["v"]],[31,["p","V","=","ν","R","T"],["/"]],
+[42,["η","=","(","Q<sub>1</sub>","−","Q<sub>2</sub>",")","/","Q<sub>1</sub>"],["+"]],[43,["η","=","(","T<sub>1</sub>","−","T<sub>2</sub>",")","/","T<sub>1</sub>"],["Q<sub>1</sub>"]]];
+const X=[["a","×","t²","+","v<sub>0</sub>"],["−","/","s","g","2"],["−","×","v²","at","3"],["/","+","F","v","g"],["R","m","×","g","+"],["x²","/","m","g","Δ"],["m","/","g","+","μ²"],["V","/","m","+","h²"],["h","m","/","+","p"],["sin α","/","+","m","tg α"],["v","h","g","×","3"],["/","k","m","+","N"],["+","×","Q<sub>3</sub>","T","A"],["Q<sub>1</sub>","+","×","Q<sub>2</sub>","A"]];
+[[1,["a","=","(","v","−","v<sub>0</sub>",")","/","t"],["+","×","s","t²","g"]],
+[4,["s","=","(","v²","−","v<sub>0</sub>²",")","/","2a"],["+","×","t","a²","v"]],
+[5,["h","=","g","t²","/","2"],["t","×","+","m","v"]],
+[6,["a","=","v²","/","R"],["R²","×","T","ω","m"]],
+[7,["T","=","2πR","/","v"],["πR","×","ν","v²","2"]],
+[9,["F<sub>12</sub>","=","−","F<sub>21</sub>"],["+","F<sub>1</sub>","/","m","a"]],
+[10,["ΣF","=","0","⇒","v","=","const"],["a","≠","1","m","g"]],
+[15,["v","=","√","(","G","M","/","R",")"],["m","R²","×","g","+"]],
+[16,["M","=","F","l"],["/","m","+","s","h"]],
+[17,["ΣF","=","0",",","ΣM","=","0"],["ΣA","1","≠","m","v"]],
+[20,["p","=","m","v"],["/","v²","a","t","+"]],
+[21,["m<sub>1</sub>v<sub>1</sub>","+","m<sub>2</sub>v<sub>2</sub>","=","m<sub>1</sub>v′<sub>1</sub>","+","m<sub>2</sub>v′<sub>2</sub>"],["−","m<sub>1</sub>v<sub>2</sub>","/","m<sub>3</sub>v<sub>3</sub>","×"]],
+[23,["N","=","A","/","t"],["F","s","×","+","v²"]],
+[25,["E<sub>p</sub>","=","m","g","h"],["v²","/","2","k","x"]],
+[26,["E<sub>k</sub>","+","E<sub>p</sub>","=","const"],["−","0","/","m","g"]],
+[27,["ν","=","N","/","N<sub>A</sub>"],["×","N<sub>0</sub>","k","R","+"]],
+[28,["p","=","⅓","m<sub>0</sub>","n","v²"],["⅔","/","k","T","+"]],
+[29,["Ē","=","(3/2)","k","T"],["/","R","×","p","V"]],
+[30,["p","=","n","k","T"],["/","m","×","+","N"]],
+[32,["p","V","=","const"],["/","T","+","ν","R"]],
+[33,["V","/","T","=","const"],["p","×","+","ν","R"]],
+[34,["p","/","T","=","const"],["V","×","+","m","R"]],
+[35,["φ","=","p","/","p<sub>н</sub>","·","100%"],["×","V","T","1","%"]],
+[36,["U","=","(3/2)","ν","R","T"],["/","k","p","V","+"]],
+[37,["A","=","p","ΔV"],["/","V","T","+","ΔT"]],
+[38,["Q","=","ΔU","+","A<sub>газа</sub>"],["−","/","×","A<sub>внеш</sub>","ΔT"]],
+[39,["Q","=","c","m","ΔT"],["λ","L","/","+","q"]],
+[40,["Q","=","λ","m"],["c","ΔT","/","+","×"]],
+[41,["Q","=","q","m"],["c","ΔT","/","+","×"]]].forEach(e=>{B.push([e[0],e[1],[]]);X.push(e[2])});
+let Bc=-1,bank=[],pl=[],bst="",solved=new Set(ld("fz-built",[]));
+function nextB(){
+ const free=B.map((b,i)=>i).filter(i=>!solved.has(i)&&i!==Bc);
+ Bc=(free.length?free:B.map((b,i)=>i).filter(i=>i!==Bc))[Math.floor(Math.random()*(free.length||B.length-1))];
+ bank=sh([...B[Bc][1],...X[Bc]]);pl=[];bst="";rb();
+}
+function rb(){
+ const [di,tk]=B[Bc];
+ $("build").innerHTML=`<div class="qtop"><span>Собрано ${solved.size} из ${B.length}</span><span>${T[D[di][0]][0]}</span></div>
+ <p class="q">Собери формулу: ${D[di][1]}</p>
+ <div class="slots ${bst}" id="slots">${pl.length?pl.map(k=>`<button class="tok" data-r="${k}">${bank[k]}</button>`).join(""):'<span class="ph">Нажимай на части ниже по порядку</span>'}</div>
+ <div class="bank">${bank.map((t,k)=>`<button class="tok${pl.includes(k)?" used":""}" data-b="${k}">${t}</button>`).join("")}</div>
+ <div id="bfb">${bst==="ok"?`<p class="fb"><b>Верно!</b> ${D[di][3]}</p>`:bst==="no"?'<p class="fb"><b>Не подходит.</b> Формула собрана неверно: проверь порядок и уберите лишние части.</p>':""}</div>
+ <div class="acts">${bst==="ok"?'<button class="btn pri" data-x="next">Следующая формула</button>':`<button class="btn pri" data-x="check"${pl.length===tk.length?"":" disabled"}>Проверить</button><button class="btn" data-x="hint">Подсказка</button><button class="btn" data-x="reset">Сбросить</button>`}</div>`;
+}
+$("build").onclick=e=>{
+ const t=e.target.closest("button");if(!t)return;const tk=B[Bc][1];
+ if(t.dataset.b!==undefined&&bst!=="ok"){if(pl.length<tk.length)pl.push(+t.dataset.b);bst="";rb()}
+ else if(t.dataset.r!==undefined&&bst!=="ok"){pl.splice(pl.indexOf(+t.dataset.r),1);bst="";rb()}
+ else if(t.dataset.x==="reset"){pl=[];bst="";rb()}
+ else if(t.dataset.x==="next")nextB();
+ else if(t.dataset.x==="check"){
+  if(pl.map(k=>bank[k]).join("|")===tk.join("|")){bst="ok";solved.add(Bc);sv("fz-built",[...solved])}else bst=pl.length?"no":"";rb();
+ }else if(t.dataset.x==="hint"&&bst!=="ok"){
+  let k=0;while(k<pl.length&&bank[pl[k]]===tk[k])k++;
+  const keep=pl.slice(0,k);if(k<tk.length){const f=bank.findIndex((x,j)=>x===tk[k]&&!keep.includes(j));keep.push(f)}
+  pl=keep;bst="";rb();
+ }
+};
+</script>
+</body>
+</html>
